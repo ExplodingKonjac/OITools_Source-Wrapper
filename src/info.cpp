@@ -18,7 +18,7 @@ void displayHelp()
 	"  -v, --version\n"
 	"    Display version information.\n"
 	"  -h, --help\n"
-	"    Display helping message.\n"
+	"    Display this information.\n"
 	"  -o <directory>, --output=<directory>\n"
 	"    Place output files in <directory>.\n"
 	"  -S, --subdir-only\n"

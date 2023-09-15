@@ -46,7 +46,7 @@ int main(int argc,char *argv[])
 				  root_path.generic_string().c_str());
 	if(Options::output_dir.empty())
 		quitError("No output directory provided.\n"
-				  "Use 'oit-wrap --help' to get helping information.\n");
+				  "Use 'oit-wrap --help' to get help.\n");
 	fs::path output_path(Options::output_dir);
 	boost::system::error_code ec;
 	fs::create_directory(output_path,ec);

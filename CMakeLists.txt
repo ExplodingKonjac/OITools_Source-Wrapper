@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.26)
-project("OITools::File-Wrapper")
+project("OITools::Source-Wrapper")
 
 # settings
 set(CXX_STANDARD 17)
