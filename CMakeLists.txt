@@ -25,3 +25,7 @@ find_package(Boost COMPONENTS filesystem REQUIRED)
 aux_source_directory(src/ src_list)
 add_executable(oit-wrap ${src_list})
 target_link_libraries(oit-wrap ${Boost_LIBRARIES})
+
+# installing
+install(TARGETS oit-wrap RUNTIME DESTINATION bin/)
+install(FILES LICENSE DESTINATION .)
