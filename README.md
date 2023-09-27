@@ -6,11 +6,11 @@ This project is part of OITools Project.
 
 This project is using [the Boost Library](https://www.boost.org/).
 
-# How to use
+## How to use
 
 Run `oit-wrap --help`.
 
-# Build & Install
+## Build & Install
 
 Requirements:
 
@@ -20,7 +20,7 @@ Requirements:
 
 You may need administrator privileges during the following steps.
 
-## Linux
+### Linux
 
 Run the following commands under the source directory:
 
@@ -32,7 +32,7 @@ cmake --install . --prefix=${install_directory}
 
 where `${install_directory}` is the directory to install in. If `--prefix` is not specified, it'll be `/usr/local/`.
 
-## Windows
+### Windows
 
 Run the following commands under the source directory:
 
