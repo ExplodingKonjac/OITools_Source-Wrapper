@@ -15,10 +15,8 @@ elseif(CMAKE_BUILD_TYPE AND (CMAKE_BUILD_TYPE STREQUAL "Debug"))
 else()
 	message(FATAL_ERROR "Unknown build type.")
 endif()
-if(WIN32)
-	set(Boost_ROOT D:/Libraries/boost/)
-	set(Boost_NO_SYSTEM_PATHS ON)
-endif()
+
+# requires
 find_package(Boost COMPONENTS filesystem REQUIRED)
 
 # main
