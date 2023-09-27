@@ -25,5 +25,10 @@ add_executable(oit-wrap ${src_list})
 target_link_libraries(oit-wrap ${Boost_LIBRARIES})
 
 # installing
+if(CMAKE_SYSTEM_NAME MATCHES "Windows")
+	set(CMAKE_INSTALL_PREFIX "C:/Program Files/OITools/")
+elseif(CMAKE_SYSTEM_NAME MATCHES "Linux")
+	set(CMAKE_INSTALL_PREFIX "/usr/local/")
+endif()
 install(TARGETS oit-wrap RUNTIME DESTINATION bin/)
 install(FILES LICENSE DESTINATION .)

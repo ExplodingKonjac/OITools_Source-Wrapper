@@ -27,8 +27,12 @@ void displayHelp()
 	"  -R, --rootdir-only\n"
 	"    Program will only search problem names from sources in the form\n"
 	"    of '<root>/A.cpp'.\n"
-	"  --exclude=<name>\n"
-	"    Program will ignore <name> if it appears as a searched name.";
+	"  -e, --exclude=<name>\n"
+	"    Program will ignore <name> if it appears as a searched name. You can\n"
+	"    specify --exclude multiple times if you need to exclude more names.\n"
+	"  -i, --include=<name>\n"
+	"    Program will ONLY accept <name> as a searched name. You can specify\n"
+	"    --include multiple times if you need to include more names.\n";
 	std::printf(text);
 }
 

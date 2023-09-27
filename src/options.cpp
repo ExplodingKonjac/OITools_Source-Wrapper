@@ -5,7 +5,7 @@ namespace Options
 
 bool print_help=false,print_version=false,subdir_only=false,rootdir_only=false;
 std::string root_dir("."),output_dir;
-std::vector<std::string> exclude_list;
+std::set<std::string> exclude_list,include_list;
 
 option long_options[]={
 	{"help",no_argument,0,'h'},
@@ -13,7 +13,8 @@ option long_options[]={
 	{"output",required_argument,0,'o'},
 	{"subdir-only",no_argument,0,'S'},
 	{"rootdir-only",no_argument,0,'R'},
-	{"exclude",required_argument,0,501},
+	{"exclude",required_argument,0,'e'},
+	{"include",required_argument,0,'i'},
 	{0,0,0,0}
 };
 char short_options[]={
@@ -42,8 +43,11 @@ void parse(int argc,char *argv[])
 		 case 'R':
 			rootdir_only=true;
 			break;
-		 case 501:
-			exclude_list.push_back(optarg);
+		 case 'e':
+			exclude_list.insert(optarg);
+			break;
+		 case 'i':
+			include_list.insert(optarg);
 			break;
 		 default:
 			std::fprintf(stderr,"[Error] Unknown option %s, ignored.\n",argv[optind]);

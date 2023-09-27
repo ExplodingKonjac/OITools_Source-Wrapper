@@ -68,10 +68,11 @@ int main(int argc,char *argv[])
 			problemset.insert(name);
 		}
 	}
-	for(auto &name: Options::exclude_list)
-		problemset.erase(name);
 	for(auto &name: problemset)
 	{
+		if(Options::exclude_list.count(name) ||
+		   (!Options::include_list.empty() && !Options::include_list.count(name)))
+			continue;
 		fs::create_directory(output_path/name,ec);
 		if(ec) quitError("Failed to create subdirectory for '%s'.",name.c_str());
 		fs::path file1=root_path/name/(name+".cpp"),file2=root_path/(name+".cpp"),file;
