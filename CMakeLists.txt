@@ -26,7 +26,7 @@ target_link_libraries(oit-wrap ${Boost_LIBRARIES})
 
 # installing
 if(CMAKE_SYSTEM_NAME MATCHES "Windows")
-	set(CMAKE_INSTALL_PREFIX "C:\\Program Files\\OITools\\")
+	set(CMAKE_INSTALL_PREFIX "C:/Program Files/OITools/")
 elseif(CMAKE_SYSTEM_NAME MATCHES "Linux")
 	set(CMAKE_INSTALL_PREFIX "/usr/local/")
 endif()
