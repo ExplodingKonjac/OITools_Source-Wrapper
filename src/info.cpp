@@ -7,8 +7,8 @@ void displayHelp()
 {
 	constexpr char text[]=
 	"Usage: oit-wrap [<root>] [options...]\n"
-	"Automatically searches the problem names under <root>, then\n"
-	"wrap the sources into the output directory in tidy format.\n"
+	"Automatically searches the problem names under <root>, then wrap the\n"
+	"sources into the output directory in tidy format.\n"
 	"\n"
 	"Arguments:\n"
 	"  <root>\n"
@@ -39,7 +39,7 @@ void displayHelp()
 void displayVersion()
 {
 	constexpr char text[]=
-	"oit-wrap 1.0\n"
+	"oit-wrap 1.1\n"
 	"Copyright (C) 2023 ExplodingKonjac\n"
 	"\n"
 	"This program is free software: you can redistribute it and/or modify\n"
