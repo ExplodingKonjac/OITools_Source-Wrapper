@@ -1,6 +1,6 @@
 #include "core/info.h"
 #include "core/options.h"
-#include "base/Colorful.hpp"
+#include "Colorful.hpp"
 
 #include <set>
 #include <iostream>
@@ -27,19 +27,19 @@ int main(int argc,char *argv[])
 	if(Options::rootdir_only && Options::subdir_only)
 	{
 		printNote("'--rootdir-only' and '--subdir-only' are both specified.\n"
-				  "Program will do nothing and quit.\n");
+				  "Program will do nothing and quit.");
 		return 0;
 	}
 	fs::path root_path(Options::root_dir);
 	if(!fs::exists(root_path))
-		quitError("'%s' does not exist.\n",
+		quitError("'%s' does not exist.",
 				  root_path.generic_string().c_str());
 	if(!fs::is_directory(root_path))
-		quitError("'%s' is not a directory.\n",
+		quitError("'%s' is not a directory.",
 				  root_path.generic_string().c_str());
 	if(Options::output_dir.empty())
 		quitError("No output directory provided.\n"
-				  "Use 'oit-wrap --help' to get help.\n");
+				  "Use 'oit-wrap --help' to get help.");
 	fs::path output_path(Options::output_dir);
 	boost::system::error_code ec;
 	fs::create_directory(output_path,ec);

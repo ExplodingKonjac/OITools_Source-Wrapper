@@ -20,8 +20,9 @@ endif()
 find_package(Boost COMPONENTS filesystem REQUIRED)
 
 # main
-aux_source_directory(src/ src_list)
-add_executable(oit-wrap ${src_list})
+aux_source_directory(src/core core_src_list)
+include_directories(src/base)
+add_executable(oit-wrap src/main.cpp ${core_src_list})
 target_link_libraries(oit-wrap ${Boost_LIBRARIES})
 
 # installing

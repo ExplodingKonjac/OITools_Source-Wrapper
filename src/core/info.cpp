@@ -39,7 +39,7 @@ void displayHelp()
 void displayVersion()
 {
 	constexpr char text[]=
-	"oit-wrap 1.1\n"
+	"oit-wrap 1.2\n"
 	"Copyright (C) 2023 ExplodingKonjac\n"
 	"\n"
 	"This program is free software: you can redistribute it and/or modify\n"

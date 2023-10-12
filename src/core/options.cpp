@@ -1,5 +1,5 @@
 #include "options.h"
-#include "base/Colorful.hpp"
+#include "Colorful.hpp"
 
 namespace Options
 {
@@ -52,9 +52,9 @@ void parse(int argc,char *argv[])
 			include_list.insert(optarg);
 			break;
 		 case ':':
-			quitError("Missing argument for '%s'.\n",argv[optind-1]);
+			quitError("Missing argument for '%s'.",argv[optind-1]);
 		 case '?':
-			quitError("Unknown option '%s'.\n",argv[optind-1]);
+			quitError("Unknown option '%s'.",argv[optind-1]);
 		}
 	}
 	if(optind<argc)
