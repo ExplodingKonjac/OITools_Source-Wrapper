@@ -1,5 +1,6 @@
-#include "info.h"
-#include "options.h"
+#include "core/info.h"
+#include "core/options.h"
+#include "base/Colorful.hpp"
 
 #include <set>
 #include <iostream>
@@ -9,14 +10,6 @@
 #include <boost/filesystem.hpp>
 
 namespace fs=boost::filesystem;
-
-template<typename ...Args>
-void quitError(const char *format,Args ...args)
-{
-	std::fprintf(stderr,"[Error] ");
-	std::fprintf(stderr,format,args...);
-	exit(1);
-}
 
 int main(int argc,char *argv[])
 {
@@ -33,8 +26,8 @@ int main(int argc,char *argv[])
 	}
 	if(Options::rootdir_only && Options::subdir_only)
 	{
-		std::printf("'--rootdir-only' and '--subdir-only' is both specified.\n");
-		std::printf("Program will do nothing and quit.\n");
+		printNote("'--rootdir-only' and '--subdir-only' are both specified.\n"
+				  "Program will do nothing and quit.\n");
 		return 0;
 	}
 	fs::path root_path(Options::root_dir);
@@ -106,9 +99,8 @@ int main(int argc,char *argv[])
 								ec.value());
 			return false;
 		};
-		bool ok=true;
-		ok&=doCopy(output_path/name/(name+".cpp"));
-		ok&=doCopy(output_path/(name+".cpp"));
+		bool ok=doCopy(output_path/name/(name+".cpp")) &&
+				doCopy(output_path/(name+".cpp"));
 		std::fprintf(stderr,"'%s' %s.\n",name.c_str(),ok?"done":"failed");
 	}
 	return 0;

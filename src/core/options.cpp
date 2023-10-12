@@ -1,4 +1,5 @@
 #include "options.h"
+#include "base/Colorful.hpp"
 
 namespace Options
 {
@@ -18,12 +19,13 @@ option long_options[]={
 	{0,0,0,0}
 };
 char short_options[]={
-	"hvo:SR"
+	":hvo:SRe:i:"
 };
 
 void parse(int argc,char *argv[])
 {
 	int arg,idx;
+	opterr=0;
 	while(~(arg=getopt_long(argc,argv,short_options,long_options,&idx)))
 	{
 		switch (arg)
@@ -49,9 +51,10 @@ void parse(int argc,char *argv[])
 		 case 'i':
 			include_list.insert(optarg);
 			break;
-		 default:
-			std::fprintf(stderr,"[Error] Unknown option %s, ignored.\n",argv[optind]);
-			break;
+		 case ':':
+			quitError("Missing argument for '%s'.\n",argv[optind-1]);
+		 case '?':
+			quitError("Unknown option '%s'.\n",argv[optind-1]);
 		}
 	}
 	if(optind<argc)
